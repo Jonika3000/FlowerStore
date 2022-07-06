@@ -73,14 +73,26 @@ namespace ConsoleApp17
             k = Console.ReadKey();
             Console.WriteLine("");
             Console.WriteLine("How much to add?");
-            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            count = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < count; i++)
             {
-                AddFlowers();
+                if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                {
+                    Roza r = new Roza();
+                    AllFlowers.Add(r);
+                }
+                else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                {
+                    Romashka r = new Romashka();
+                    AllFlowers.Add(r);
+                }
+                else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
+                {
+                    Tulpan r = new Tulpan();
+                    AllFlowers.Add(r);
+                }
             }
-           else  if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
-            {
-                AddFlowers();
-            }
+
         }
     }
 }
