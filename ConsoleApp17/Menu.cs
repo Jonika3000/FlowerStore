@@ -69,7 +69,7 @@ namespace ConsoleApp17
             Console.WriteLine("");
             if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                AddFlowers();
+                flowerStore.AddFlower();
             }
             else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
             {
