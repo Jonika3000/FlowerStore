@@ -10,13 +10,11 @@ namespace ConsoleApp17
     public class Menu
     {
         ConsoleKeyInfo k;
+        string path = "C:\\Users\\nazam\\source\\repos\\FlowerStore\\ConsoleApp17\\bin\\Debug\\net6.0\\users.json";
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
-        public Menu()
-        {
-            AddUsersFromFile();
-        }
+        
         public void AddNewUserName()
         {
             Console.WriteLine("Enter your username ->");
@@ -29,7 +27,7 @@ namespace ConsoleApp17
             Console.WriteLine("Enter your date of birthday ->");
             users.Add(new Users(username, password));
 
-            using (FileStream fs = new FileStream("c:\\users.json", FileMode.OpenOrCreate))
+            using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
             {
                 JsonSerializer.Serialize<List<Users>>(fs, users);
             }
@@ -37,7 +35,7 @@ namespace ConsoleApp17
 
         public void AddUsersFromFile()
         {
-            using (FileStream fs = new FileStream("c:\\users.json", FileMode.Open))
+            using (FileStream fs = new FileStream(path, FileMode.Open))
             {
                 users = JsonSerializer.Deserialize<List<Users>>(fs);
             }
@@ -57,6 +55,7 @@ namespace ConsoleApp17
         }
         public void Login()
         {
+            
         b:
             Console.WriteLine("Enter your username ->");
             username = Console.ReadLine();
@@ -97,6 +96,7 @@ namespace ConsoleApp17
             Console.WriteLine("");
             if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
+                AddUsersFromFile();
                 Login();
             }
             else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
