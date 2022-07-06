@@ -25,5 +25,25 @@ namespace ConsoleApp17
             }
             return all;
         }
+        public List<string> sellSequence(int Roza, int Romashka, int Tulpan)
+        {
+            List<string> all = new List<string>();
+            for (int i =0; i<(Roza+Romashka+Tulpan);i++)
+            {
+                if(Roza!=0)
+                {
+                    all.Add("Roza");
+                }
+                if (Romashka != 0)
+                {
+                    all.Add("Romashka");
+                }
+                if (Tulpan != 0)
+                {
+                    all.Add("Tulpan");
+                }
+            }
+            return all;
+        }
     }
 }
