@@ -13,7 +13,10 @@ namespace ConsoleApp17
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
-
+        public Menu()
+        {
+            AddUsersFromFile();
+        }
         public void AddNewUserName()
         {
             Console.WriteLine("Enter your username ->");
