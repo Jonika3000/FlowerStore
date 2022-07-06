@@ -151,34 +151,24 @@ namespace ConsoleApp17
         public void UserMenu()
         {
             ConsoleKeyInfo k;
-            while (true)
+            int t_count, roza_count, romashka_count;
+            Console.WriteLine("Enter the number of daisies -> ");
+            romashka_count = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the number of toulpan -> ");
+            t_count = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the number of rose -> ");
+            roza_count = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine("1 - Just add, 2 - Add with sequence");
+            k = Console.ReadKey();
+            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                int count;
-                Console.WriteLine("What flowers want you buy?");
-                Console.WriteLine("1-Roza , 2 -Romashka  , 3 - Toulpan,4 - This is it");
-                k = Console.ReadKey();
-                Console.WriteLine("");
-                Console.WriteLine("How much to add?");
-                count = Convert.ToInt32(Console.ReadLine());
-                for (int i = 0; i < count; i++)
-                {
-                    if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
-                    {
-                        
-                    }
-                    else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
-                    {
-                        
-                    }
-                    else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
-                    {
-                        
-                    }
-                    else if (k.Key == ConsoleKey.D4 && k.Key == ConsoleKey.NumPad4)
-                        break;
-                }
+                flowerStore.Sell(roza_count,romashka_count,t_count);
             }
-            
+            else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            {
+                flowerStore.sellSequence(roza_count, romashka_count, t_count);
+            }
         }
 
     }
