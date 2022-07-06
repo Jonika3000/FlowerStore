@@ -180,6 +180,8 @@ namespace ConsoleApp17
                 {
                     ViewOrders();
                 }
+                else
+                    break;
             }
             
         }
