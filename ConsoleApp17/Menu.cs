@@ -7,6 +7,7 @@ namespace ConsoleApp17
         FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
         string path = @"users.json";
+        List<Order> orders = new List<Order>();
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
@@ -151,6 +152,7 @@ namespace ConsoleApp17
         public void UserMenu()
         {
             ConsoleKeyInfo k;
+            Order or = new Order(orders.Count+1);
             int t_count, roza_count, romashka_count;
             Console.WriteLine("Enter the number of daisies -> ");
             romashka_count = Int32.Parse(Console.ReadLine());
@@ -163,12 +165,14 @@ namespace ConsoleApp17
             k = Console.ReadKey();
             if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                flowerStore.Sell(roza_count,romashka_count,t_count);
+                or.flowers = flowerStore.Sell(roza_count,romashka_count,t_count);
             }
             else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                flowerStore.sellSequence(roza_count, romashka_count, t_count);
+                or.flowers =flowerStore.sellSequence(roza_count, romashka_count, t_count);
             }
+
+            orders.Add(or);
         }
 
     }

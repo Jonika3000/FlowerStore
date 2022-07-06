@@ -15,10 +15,10 @@ namespace ConsoleApp17
         { get { return id; } set { id = value; } }
         public List<Flower> flowers
         { get { return _flowers; } set { _flowers = value; } }
-        Order(List<Flower> f , int num)
+       public  Order( int num)
         {
             status = false;
-            flowers = f;
+            
             id = num;
         }
     }
