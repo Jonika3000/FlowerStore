@@ -52,7 +52,37 @@ namespace ConsoleApp17
 
         private void ViewOrders()
         {
+            foreach(var order in orders)
+            {
+                if (order.Status == false)
+                {
+                    Console.WriteLine($"ID oreder: {order.id}");
+                    foreach(var q in order.flowers)
+                    {
+                        if (q.GetType() == typeof(Roza))
+                            Console.Write($"Roza,");
+                        if (q.GetType() == typeof(Romashka))
+                            Console.Write($"Romashka,");
+                        if (q.GetType() == typeof(Tulpan))
+                            Console.Write($"Tulpan,");
+                    }
+                    Console.Write($".");
+                    Console.WriteLine("");
+                    Console.WriteLine("Accept an order? (1-yes , 2- no)");
+                    k = Console.ReadKey();
+                    Console.WriteLine("");
+                    if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                    {
+                        order.Status = true;
+                        flowerStore.Del(order);
+                    }
+                   else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+                    {
+                        orders.Remove(order);
+                    }
+                }
 
+            }
         }
         public void AdminMenu(Users u)
         {
