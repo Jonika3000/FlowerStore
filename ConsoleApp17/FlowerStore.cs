@@ -8,7 +8,9 @@ namespace ConsoleApp17
 {
     internal class FlowerStore
     {
-        int Wallet=0;
+        
+        int Wallet = 0;
+        List<Flower> AllFlowers = new List<Flower>();
         public List<Flower> Sell (int Roza , int Romashka, int Tulpan)
         {
             List <Flower> all = new List <Flower> ();
@@ -61,6 +63,24 @@ namespace ConsoleApp17
                 }
             }
             return all;
+        }
+        private void AddFlower ()
+        {
+            ConsoleKeyInfo k;
+            int count;
+            Console.WriteLine("What flowers to add?");
+            Console.WriteLine("1-Roza , 2 -Romashka  , 3 - Toulpan");
+            k = Console.ReadKey();
+            Console.WriteLine("");
+            Console.WriteLine("How much to add?");
+            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            {
+                AddFlowers();
+            }
+           else  if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            {
+                AddFlowers();
+            }
         }
     }
 }

@@ -9,8 +9,9 @@ namespace ConsoleApp17
 {
     public class Menu
     {
+        FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
-        string path = "C:\\Users\\nazam\\source\\repos\\FlowerStore\\ConsoleApp17\\bin\\Debug\\net6.0\\users.json";
+        string path = @"users.json";
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
@@ -52,6 +53,29 @@ namespace ConsoleApp17
             }
             return 0;
         }
+   
+        private void ViewOrders()
+        {
+
+        }
+        public void AdminMenu(Users u)
+        {
+            Console.Clear();
+            Console.WriteLine("Make a choice:");
+            Console.WriteLine("1.Add Flowers");
+            Console.WriteLine("2.View orders");
+            Console.WriteLine("Else->Exit");
+            k = Console.ReadKey();
+            Console.WriteLine("");
+            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            {
+                AddFlowers();
+            }
+            else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+            {
+                ViewOrders();
+            }
+        }
         public void Login()
         {
             
@@ -64,10 +88,19 @@ namespace ConsoleApp17
             {
                 if (username == user.Name && password == user.Password)
                 {
-                    user.Name = username;
-                    user.Password = password;
                     Console.WriteLine("You have successfully logged in!");
-                    break;
+
+                    if (user.Name=="Admin" && user.Password=="Admin")
+                    {
+                        AdminMenu(user);
+                    }
+                    else
+                    {
+                        user.Name = username;
+                        user.Password = password; ;
+                        break;
+                    }
+                    
                 }
                 else
                 {
@@ -106,12 +139,12 @@ namespace ConsoleApp17
             Console.WriteLine("Else->Exit");
             k = Console.ReadKey();
             Console.WriteLine("");
-            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
             {
                 AddUsersFromFile();
                 Login();
             }
-            else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+            else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
             {
                 AddNewUserName();
             }
