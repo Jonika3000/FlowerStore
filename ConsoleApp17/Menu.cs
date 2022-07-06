@@ -91,9 +91,7 @@ namespace ConsoleApp17
                     }
                     else
                     {
-                        user.Name = username;
-                        user.Password = password; ;
-                        break;
+                        UserMenu();
                     }
 
                 }
@@ -142,9 +140,11 @@ namespace ConsoleApp17
             else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
             {
                 AddNewUserName();
+                Login();
             }
             else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
             {
+                Login();
                 EditPassword();
             }
         }
