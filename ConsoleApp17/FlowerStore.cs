@@ -3,7 +3,7 @@
     internal class FlowerStore
     {
 
-        int Wallet = 0;
+        public int Wallet = 0;
         List<Flower> AllFlowers = new List<Flower>();
         public List<Flower> Sell (int Roza1 , int Romashka1, int Tulpan1)
         {
@@ -39,6 +39,26 @@
                 }
             }
             return all;
+        }
+       public void ShowAll()
+        {
+            for (int i = 0; i < AllFlowers.Count; i++)
+            {
+                if (AllFlowers[i].GetType() == typeof(Romashka))
+                {
+                    Console.Write("Chamomile,");
+                }
+                if (AllFlowers[i].GetType() == typeof(Roza))
+                {
+                    Console.Write("Rose,");
+                }
+                if (AllFlowers[i].GetType() == typeof(Tulpan))
+                {
+                    Console.Write("Tulip,");
+                }
+            }
+            Console.Write(".");
+            Console.WriteLine();
         }
         void DeleteRoza()
         {
@@ -135,17 +155,17 @@
             count = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < count; i++)
             {
-                if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
                 {
                     Roza r = new Roza();
                     AllFlowers.Add(r);
                 }
-                else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
                 {
                     Romashka r = new Romashka();
                     AllFlowers.Add(r);
                 }
-                else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
+                else if (k.Key == ConsoleKey.D3 || k.Key == ConsoleKey.NumPad3)
                 {
                     Tulpan r = new Tulpan();
                     AllFlowers.Add(r);

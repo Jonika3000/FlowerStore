@@ -148,12 +148,12 @@ namespace ConsoleApp17
                     Console.WriteLine("Accept an order? (1-yes , 2- no)");
                     k = Console.ReadKey();
                     Console.WriteLine("");
-                    if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                    if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
                     {
                         order.Status = true;
                         flowerStore.Del(order);
                     }
-                   else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+                   else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
                     {
                         orders.Remove(order);
                     }
@@ -170,6 +170,8 @@ namespace ConsoleApp17
                 Console.WriteLine("1.Add Flowers");
                 Console.WriteLine("2.View orders");
                 Console.WriteLine("3.Change password");
+                Console.WriteLine("4.Show money");
+                Console.WriteLine("5.Show flowers");
                 Console.WriteLine("Else->Exit");
                 k = Console.ReadKey();
                 Console.WriteLine("");
@@ -184,6 +186,16 @@ namespace ConsoleApp17
                 else if (k.Key == ConsoleKey.D3 || k.Key == ConsoleKey.NumPad3)
                 {
                     ChangePass(u);
+                }
+                else if (k.Key == ConsoleKey.D4 || k.Key == ConsoleKey.NumPad4)
+                {
+                    Console.WriteLine($"{flowerStore.Wallet}");
+                    Console.ReadKey();
+                }
+                else if (k.Key == ConsoleKey.D5 || k.Key == ConsoleKey.NumPad5)
+                {
+                    flowerStore.ShowAll();
+                    Console.ReadKey();
                 }
                 else
                     break;
@@ -221,11 +233,11 @@ namespace ConsoleApp17
 
             Console.WriteLine("1 - Just add, 2 - Add with sequence");
             k = Console.ReadKey();
-            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
             {
                 or.flowers = flowerStore.Sell(roza_count,romashka_count,t_count);
             }
-            else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            else if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
             {
                 or.flowers =flowerStore.sellSequence(roza_count, romashka_count, t_count);
             }
