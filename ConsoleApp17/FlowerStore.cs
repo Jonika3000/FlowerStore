@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp17
+﻿namespace ConsoleApp17
 {
     internal class FlowerStore
     {
-        
+
         int Wallet = 0;
         List<Flower> AllFlowers = new List<Flower>();
-        public List<Flower> Sell (int Roza , int Romashka, int Tulpan)
+        public List<Flower> Sell(int Roza, int Romashka, int Tulpan)
         {
-            List <Flower> all = new List <Flower> ();
+            List<Flower> all = new List<Flower>();
             for (int i = 0; i < Roza; i++)
             {
                 Roza roza = new Roza();
-                all.Add (roza);
+                all.Add(roza);
                 Wallet += roza.Price;
             }
             for (int i = 0; i < Romashka; i++)
@@ -37,10 +31,10 @@ namespace ConsoleApp17
         public List<Flower> sellSequence(int Roza, int Romashka, int Tulpan)
         {
             List<Flower> all = new List<Flower>();
-            int vsego= Roza + Romashka + Tulpan;
-            for (int i =0; i< vsego; i++)
+            int vsego = Roza + Romashka + Tulpan;
+            for (int i = 0; i < vsego; i++)
             {
-                if(Roza!=0)
+                if (Roza != 0)
                 {
                     Roza roza = new Roza();
                     all.Add(roza);
@@ -64,7 +58,7 @@ namespace ConsoleApp17
             }
             return all;
         }
-        private void AddFlower ()
+        private void AddFlower()
         {
             ConsoleKeyInfo k;
             int count;

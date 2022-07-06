@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp17
+﻿namespace ConsoleApp17
 {
-    internal class Romashka:Flower
+    internal class Romashka : Flower
     {
         public Romashka()
         {

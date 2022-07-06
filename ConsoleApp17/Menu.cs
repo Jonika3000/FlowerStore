@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 
 namespace ConsoleApp17
 {
@@ -15,7 +10,7 @@ namespace ConsoleApp17
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
-        
+
         public void AddNewUserName()
         {
             Console.WriteLine("Enter your username ->");
@@ -53,7 +48,7 @@ namespace ConsoleApp17
             }
             return 0;
         }
-   
+
         private void ViewOrders()
         {
 
@@ -78,7 +73,7 @@ namespace ConsoleApp17
         }
         public void Login()
         {
-            
+
         b:
             Console.WriteLine("Enter your username ->");
             username = Console.ReadLine();
@@ -90,7 +85,7 @@ namespace ConsoleApp17
                 {
                     Console.WriteLine("You have successfully logged in!");
 
-                    if (user.Name=="Admin" && user.Password=="Admin")
+                    if (user.Name == "Admin" && user.Password == "Admin")
                     {
                         AdminMenu(user);
                     }
@@ -100,7 +95,7 @@ namespace ConsoleApp17
                         user.Password = password; ;
                         break;
                     }
-                    
+
                 }
                 else
                 {
@@ -118,18 +113,18 @@ namespace ConsoleApp17
         }
         public void EditPassword()
         {
-                foreach (Users user in users)
+            foreach (Users user in users)
+            {
+                if (user.Name == username)
                 {
-                    if (user.Name == username)
-                    {
-                        Console.WriteLine("Enter your new password -> ");
-                        string pass = Console.ReadLine();
-                        user.Password = pass;
-                        password = pass;
-                    }
+                    Console.WriteLine("Enter your new password -> ");
+                    string pass = Console.ReadLine();
+                    user.Password = pass;
+                    password = pass;
                 }
+            }
         }
-            public void MenuShow()
+        public void MenuShow()
         {
             Console.Clear();
             Console.WriteLine("Make a choice:");
@@ -148,10 +143,42 @@ namespace ConsoleApp17
             {
                 AddNewUserName();
             }
-            else if(k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
+            else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
             {
                 EditPassword();
             }
+        }
+        public void UserMenu()
+        {
+            ConsoleKeyInfo k;
+            while (true)
+            {
+                int count;
+                Console.WriteLine("What flowers want you buy?");
+                Console.WriteLine("1-Roza , 2 -Romashka  , 3 - Toulpan,4 - This is it");
+                k = Console.ReadKey();
+                Console.WriteLine("");
+                Console.WriteLine("How much to add?");
+                count = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < count; i++)
+                {
+                    if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                    {
+                        
+                    }
+                    else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                    {
+                        
+                    }
+                    else if (k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
+                    {
+                        
+                    }
+                    else if (k.Key == ConsoleKey.D4 && k.Key == ConsoleKey.NumPad4)
+                        break;
+                }
+            }
+            
         }
 
     }
