@@ -9,6 +9,7 @@ namespace ConsoleApp17
     internal class FlowerStore
     {
         int Wallet=0;
+        List<Flower> AllFlowers = new List<Flower>();
         public List<Flower> Sell (int Roza , int Romashka, int Tulpan)
         {
             List <Flower> all = new List <Flower> ();
