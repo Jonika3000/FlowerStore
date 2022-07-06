@@ -169,6 +169,7 @@ namespace ConsoleApp17
                 Console.WriteLine("Make a choice:");
                 Console.WriteLine("1.Add Flowers");
                 Console.WriteLine("2.View orders");
+                Console.WriteLine("3.Change password");
                 Console.WriteLine("Else->Exit");
                 k = Console.ReadKey();
                 Console.WriteLine("");
@@ -179,6 +180,10 @@ namespace ConsoleApp17
                 else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
                 {
                     ViewOrders();
+                }
+                else if (k.Key == ConsoleKey.D3 || k.Key == ConsoleKey.NumPad3)
+                {
+                    ChangePass(u);
                 }
                 else
                     break;

@@ -12,7 +12,7 @@ namespace ConsoleApp17
         List<Flower> _flowers = new List<Flower>();
         bool _status;
         public int id
-        { get { return id; } set { id = value; } }
+        { get { return _id; } set { _id = value; } }
         public List<Flower> flowers
         { get { return _flowers; } set { _flowers = value; } }
         public bool Status
