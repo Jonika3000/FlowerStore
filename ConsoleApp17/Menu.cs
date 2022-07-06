@@ -24,7 +24,6 @@ namespace ConsoleApp17
                 goto a;
             Console.WriteLine("Enter your password ->");
             password = Console.ReadLine();
-            Console.WriteLine("Enter your date of birthday ->");
             users.Add(new Users(username, password));
 
             using (FileStream fs = new FileStream(path, FileMode.OpenOrCreate))
@@ -66,7 +65,7 @@ namespace ConsoleApp17
                 if (username == user.Name && password == user.Password)
                 {
                     user.Name = username;
-                    user.Password = password;;
+                    user.Password = password;
                     Console.WriteLine("You have successfully logged in!");
                     break;
                 }
@@ -84,13 +83,26 @@ namespace ConsoleApp17
 
             }
         }
-
-        public void MenuShow()
+        public void EditPassword()
+        {
+                foreach (Users user in users)
+                {
+                    if (user.Name == username)
+                    {
+                        Console.WriteLine("Enter your new password -> ");
+                        string pass = Console.ReadLine();
+                        user.Password = pass;
+                        password = pass;
+                    }
+                }
+        }
+            public void MenuShow()
         {
             Console.Clear();
             Console.WriteLine("Make a choice:");
             Console.WriteLine("1.Login");
             Console.WriteLine("2.Register");
+            Console.WriteLine("3.Edit password");
             Console.WriteLine("Else->Exit");
             k = Console.ReadKey();
             Console.WriteLine("");
@@ -102,6 +114,10 @@ namespace ConsoleApp17
             else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
             {
                 AddNewUserName();
+            }
+            else if(k.Key == ConsoleKey.D3 && k.Key == ConsoleKey.NumPad3)
+            {
+                EditPassword();
             }
         }
 
