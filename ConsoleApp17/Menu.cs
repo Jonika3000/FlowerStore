@@ -6,7 +6,7 @@ namespace ConsoleApp17
     {
         FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
-        string path = @"users.json";
+        string path = "C:\\Users\\nazam\\source\\repos\\FlowerStore\\ConsoleApp17\\bin\\Debug\\net6.0\\users.json";
         List<Order> orders = new List<Order>();
         public string username { get; set; }
         public string password { get; set; }
