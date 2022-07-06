@@ -6,7 +6,7 @@ namespace ConsoleApp17
     {
         FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
-        string path = @"users.json";
+        string path = @"D:\DZ step\ConsoleApp17\ConsoleApp17\users.json";
         List<Order> orders = new List<Order>();
         public string username { get; set; }
         public string password { get; set; }
@@ -32,9 +32,13 @@ namespace ConsoleApp17
         public void AddUsersFromFile()
         {
             using (FileStream fs = new FileStream(path, FileMode.Open))
-            {
+                {
+                var sr = new StreamReader(fs);
+                string str = sr.ReadToEnd();
                 users = JsonSerializer.Deserialize<List<Users>>(fs);
-            }
+                }
+             
+           
         }
         public int CheckRepeat(string obj_user)
         {
@@ -182,7 +186,8 @@ namespace ConsoleApp17
         public void UserMenu()
         {
             ConsoleKeyInfo k;
-            Order or = new Order(orders.Count+1);
+            Random r = new Random();    
+            Order or = new Order(r.Next(0,1000));
             int t_count, roza_count, romashka_count;
             Console.WriteLine("Enter the number of daisies -> ");
             romashka_count = Int32.Parse(Console.ReadLine());
