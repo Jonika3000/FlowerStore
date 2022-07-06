@@ -5,28 +5,77 @@
 
         int Wallet = 0;
         List<Flower> AllFlowers = new List<Flower>();
-        public List<Flower> Sell(int Roza, int Romashka, int Tulpan)
+        public List<Flower> Sell (int Roza1 , int Romashka1, int Tulpan1)
         {
-            List<Flower> all = new List<Flower>();
-            for (int i = 0; i < Roza; i++)
+            List <Flower> all = new List <Flower> ();
+            for (int i = 0; i < Roza1; i++)
             {
-                Roza roza = new Roza();
-                all.Add(roza);
-                Wallet += roza.Price;
+                bool allHas = AllFlowers.Any(s => s.GetType() == typeof(Roza));
+                if (allHas == true)
+                {
+                    Roza roza = new Roza();
+                    all.Add(roza);
+                    Wallet += roza.Price;
+                    DeleteRoza();
+                }
+                
             }
-            for (int i = 0; i < Romashka; i++)
+            for (int i = 0; i < Romashka1; i++)
             {
-                Romashka romashka = new Romashka();
-                all.Add(romashka);
-                Wallet += romashka.Price;
+                bool allHas = AllFlowers.Any(s => s.GetType() == typeof(Roza));
+                if (allHas == true)
+                {
+                    Romashka romashka = new Romashka();
+                    all.Add(romashka);
+                    Wallet += romashka.Price;
+                    DeleteRomashka();
+                }
             }
-            for (int i = 0; i < Tulpan; i++)
+            for (int i = 0; i < Tulpan1; i++)
             {
-                Tulpan roulpan = new Tulpan();
-                all.Add(roulpan);
-                Wallet += roulpan.Price;
+                bool allHas = AllFlowers.Any(s => s.GetType() == typeof(Roza));
+                if (allHas == true)
+                {
+                    Tulpan roulpan = new Tulpan();
+                    all.Add(roulpan);
+                    Wallet += roulpan.Price;
+                    DeleteTulpan();
+                }
             }
             return all;
+        }
+        void DeleteRoza()
+        {
+            for (int i =0; i< AllFlowers.Count;i++)
+            {
+                if (AllFlowers[i].GetType() == typeof(Roza))
+                {
+                    AllFlowers.Remove(AllFlowers[i]);
+                    break;
+                }
+            }
+        }
+        void DeleteTulpan()
+        {
+            for (int i = 0; i < AllFlowers.Count; i++)
+            {
+                if (AllFlowers[i].GetType() == typeof(Tulpan))
+                {
+                    AllFlowers.Remove(AllFlowers[i]);
+                    break;
+                }
+            }
+        }
+        void DeleteRomashka()
+        {
+            for (int i = 0; i < AllFlowers.Count; i++)
+            {
+                if (AllFlowers[i].GetType() == typeof(Romashka))
+                {
+                    AllFlowers.Remove(AllFlowers[i]);
+                    break;
+                }
+            }
         }
         public List<Flower> sellSequence(int Roza, int Romashka, int Tulpan)
         {
@@ -58,7 +107,7 @@
             }
             return all;
         }
-        private void AddFlower()
+        public void AddFlower ()
         {
             ConsoleKeyInfo k;
             int count;
