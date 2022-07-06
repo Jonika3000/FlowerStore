@@ -10,15 +10,11 @@ namespace ConsoleApp17
     {
         public string Name { get; set; }
         public string Password { get; set; }
-        
-        public void Exit()
+
+        public Users(string obj_username, string obj_password)
         {
-            Console.WriteLine("Enter your username -> ");
-            Name = Console.ReadLine();
-            Console.WriteLine("Enter your password -> ");
-            Password = Console.ReadLine();
-
-
+            Name = obj_username;
+            Password = obj_password;
         }
 
     }
