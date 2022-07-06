@@ -11,7 +11,7 @@ namespace ConsoleApp17
     {
         FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
-        string path = "C:\\Users\\nazam\\source\\repos\\FlowerStore\\ConsoleApp17\\bin\\Debug\\net6.0\\users.json";
+        string path = @"users.json";
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
@@ -54,10 +54,7 @@ namespace ConsoleApp17
             }
             return 0;
         }
-        private void AddFlowers()
-        {
-
-        }
+   
         private void ViewOrders()
         {
 
@@ -130,12 +127,12 @@ namespace ConsoleApp17
             Console.WriteLine("Else->Exit");
             k = Console.ReadKey();
             Console.WriteLine("");
-            if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+            if (k.Key == ConsoleKey.D1 || k.Key == ConsoleKey.NumPad1)
             {
                 AddUsersFromFile();
                 Login();
             }
-            else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+            else if (k.Key == ConsoleKey.D2 || k.Key == ConsoleKey.NumPad2)
             {
                 AddNewUserName();
             }
