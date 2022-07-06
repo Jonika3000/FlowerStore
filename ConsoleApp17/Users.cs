@@ -5,11 +5,13 @@
         public string Name { get; set; }
         public string Password { get; set; }
 
-        public Users(string obj_username, string obj_password)
+        public void Register()
         {
-            Name = obj_username;
-            Password = obj_password;
+            Console.WriteLine("Enter login:");
+            Name = Console.ReadLine();
+            Console.WriteLine("Enter password:");
+            Password = Console.ReadLine();
         }
 
-    }
+     }
 }
