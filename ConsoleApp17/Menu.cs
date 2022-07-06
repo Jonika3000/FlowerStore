@@ -8,5 +8,6 @@ namespace ConsoleApp17
 {
     internal class Menu
     {
+
     }
 }
