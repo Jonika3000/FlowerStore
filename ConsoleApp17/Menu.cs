@@ -7,6 +7,7 @@ namespace ConsoleApp17
         FlowerStore flowerStore = new FlowerStore();
         ConsoleKeyInfo k;
         string path = @"users.json";
+        List<Order> orders = new List<Order>();
         public string username { get; set; }
         public string password { get; set; }
         List<Users> users = new List<Users>();
@@ -51,7 +52,37 @@ namespace ConsoleApp17
 
         private void ViewOrders()
         {
+            foreach(var order in orders)
+            {
+                if (order.Status == false)
+                {
+                    Console.WriteLine($"ID oreder: {order.id}");
+                    foreach(var q in order.flowers)
+                    {
+                        if (q.GetType() == typeof(Roza))
+                            Console.Write($"Roza,");
+                        if (q.GetType() == typeof(Romashka))
+                            Console.Write($"Romashka,");
+                        if (q.GetType() == typeof(Tulpan))
+                            Console.Write($"Tulpan,");
+                    }
+                    Console.Write($".");
+                    Console.WriteLine("");
+                    Console.WriteLine("Accept an order? (1-yes , 2- no)");
+                    k = Console.ReadKey();
+                    Console.WriteLine("");
+                    if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
+                    {
+                        order.Status = true;
+                        flowerStore.Del(order);
+                    }
+                   else if (k.Key == ConsoleKey.D2 && k.Key == ConsoleKey.NumPad2)
+                    {
+                        orders.Remove(order);
+                    }
+                }
 
+            }
         }
         public void AdminMenu(Users u)
         {
@@ -151,6 +182,7 @@ namespace ConsoleApp17
         public void UserMenu()
         {
             ConsoleKeyInfo k;
+            Order or = new Order(orders.Count+1);
             int t_count, roza_count, romashka_count;
             Console.WriteLine("Enter the number of daisies -> ");
             romashka_count = Int32.Parse(Console.ReadLine());
@@ -163,12 +195,14 @@ namespace ConsoleApp17
             k = Console.ReadKey();
             if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                flowerStore.Sell(roza_count,romashka_count,t_count);
+                or.flowers = flowerStore.Sell(roza_count,romashka_count,t_count);
             }
             else if (k.Key == ConsoleKey.D1 && k.Key == ConsoleKey.NumPad1)
             {
-                flowerStore.sellSequence(roza_count, romashka_count, t_count);
+                or.flowers =flowerStore.sellSequence(roza_count, romashka_count, t_count);
             }
+
+            orders.Add(or);
         }
 
     }

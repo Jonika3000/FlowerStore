@@ -15,8 +15,6 @@
                 {
                     Roza roza = new Roza();
                     all.Add(roza);
-                    Wallet += roza.Price;
-                    DeleteRoza();
                 }
                 
             }
@@ -27,8 +25,7 @@
                 {
                     Romashka romashka = new Romashka();
                     all.Add(romashka);
-                    Wallet += romashka.Price;
-                    DeleteRomashka();
+                    
                 }
             }
             for (int i = 0; i < Tulpan1; i++)
@@ -38,8 +35,7 @@
                 {
                     Tulpan roulpan = new Tulpan();
                     all.Add(roulpan);
-                    Wallet += roulpan.Price;
-                    DeleteTulpan();
+                   
                 }
             }
             return all;
@@ -87,25 +83,45 @@
                 {
                     Roza roza = new Roza();
                     all.Add(roza);
-                    Wallet += roza.Price;
                     Roza--;
                 }
                 if (Romashka != 0)
                 {
                     Romashka romashka = new Romashka();
                     all.Add(romashka);
-                    Wallet += romashka.Price;
+                    
                     Romashka--;
                 }
                 if (Tulpan != 0)
                 {
                     Tulpan roulpan = new Tulpan();
                     all.Add(roulpan);
-                    Wallet += roulpan.Price;
+                    
                     Tulpan--;
                 }
             }
             return all;
+        }
+        public void Del (Order r)
+        {
+            for (int i = 0; i <r.flowers.Count;i++)
+            {
+                if (r.flowers[i].GetType() == typeof(Roza))
+                {
+                    DeleteRoza();
+                    Wallet += r.flowers[i].Price;
+                }
+                if (r.flowers[i].GetType() == typeof(Romashka))
+                {
+                    DeleteRomashka();
+                    Wallet += r.flowers[i].Price;
+                }
+                if (r.flowers[i].GetType() == typeof(Tulpan))
+                {
+                    DeleteTulpan();
+                    Wallet += r.flowers[i].Price;
+                }
+            }
         }
         public void AddFlower ()
         {
