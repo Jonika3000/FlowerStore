@@ -8,39 +8,56 @@ namespace ConsoleApp17
 {
     internal class FlowerStore
     {
-        public List<string> Sell (int Roza , int Romashka, int Tulpan)
+        int Wallet=0;
+        public List<Flower> Sell (int Roza , int Romashka, int Tulpan)
         {
-            List <string> all = new List <string> ();
+            List <Flower> all = new List <Flower> ();
             for (int i = 0; i < Roza; i++)
             {
-                all.Add ("Roza");
+                Roza roza = new Roza();
+                all.Add (roza);
+                Wallet += roza.Price;
             }
             for (int i = 0; i < Romashka; i++)
             {
-                all.Add("Romashka");
+                Romashka romashka = new Romashka();
+                all.Add(romashka);
+                Wallet += romashka.Price;
             }
             for (int i = 0; i < Tulpan; i++)
             {
-                all.Add("Tulpan");
+                Tulpan roulpan = new Tulpan();
+                all.Add(roulpan);
+                Wallet += roulpan.Price;
             }
             return all;
         }
-        public List<string> sellSequence(int Roza, int Romashka, int Tulpan)
+        public List<Flower> sellSequence(int Roza, int Romashka, int Tulpan)
         {
-            List<string> all = new List<string>();
-            for (int i =0; i<(Roza+Romashka+Tulpan);i++)
+            List<Flower> all = new List<Flower>();
+            int vsego= Roza + Romashka + Tulpan;
+            for (int i =0; i< vsego; i++)
             {
                 if(Roza!=0)
                 {
-                    all.Add("Roza");
+                    Roza roza = new Roza();
+                    all.Add(roza);
+                    Wallet += roza.Price;
+                    Roza--;
                 }
                 if (Romashka != 0)
                 {
-                    all.Add("Romashka");
+                    Romashka romashka = new Romashka();
+                    all.Add(romashka);
+                    Wallet += romashka.Price;
+                    Romashka--;
                 }
                 if (Tulpan != 0)
                 {
-                    all.Add("Tulpan");
+                    Tulpan roulpan = new Tulpan();
+                    all.Add(roulpan);
+                    Wallet += roulpan.Price;
+                    Tulpan--;
                 }
             }
             return all;
