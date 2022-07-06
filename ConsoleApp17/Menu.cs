@@ -9,5 +9,9 @@ namespace ConsoleApp17
     internal class Menu
     {
 
+        public void Simplemenu(Users u)
+        {
+
+        }
     }
 }
